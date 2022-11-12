@@ -8,7 +8,7 @@ function App() {
 				<ul class="nav-list">
 					<div class="logo">
 						<img src=
-"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210420155809/gfg-new-logo.png" />
+"https://research.utdallas.edu/app/themes/utdresearchtheme/assets/images/logo.png?last_modified=1667557380" />
 					</div>
 					<li><a href="#courses">Courses</a></li>
 					<li><a href="#tutorials">Tutorials</a></li>
