@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import './Sidebar.css';
 
 function App() {
 	return (
-  <div>
-    <p>yo1</p>
-  </div>
-  )
+		<div>
+			<p>sidebar</p>
+		</div>
+	)
 }
 
 export default App
