@@ -1,22 +1,10 @@
 const config = require('./dbConfig'),
     sql = require('mssql');
 
-const getTeams = async () => {
+const getTeams = async (groupname) => {
     try {
         let pool = await sql.connect(config);
-        let team = pool.request().query("SELECT * FROM makeTeam")
-        console.log(team);
-        return(team);
-    }
-    catch(error) {
-        console.log(error);
-    }
-}
-
-const getOneTeam = async (Team) => {
-    try {
-        let pool = await sql.connect(config);
-        let team = pool.request().query("SELECT * FROM makeTeam WHERE class = '${Team.classroom}' AND groupName = '${Team.groupName}'")
+        let team = await pool.request().query(`SELECT * FROM makeTeam WHERE groupName = '${groupname}'`);
         console.log(team);
         return(team);
     }

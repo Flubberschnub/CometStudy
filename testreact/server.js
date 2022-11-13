@@ -14,24 +14,16 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
-app.post('/api', function(req, res){
+app.post('/api', async(req, res) =>{
     console.log('called');
-    res.send({result: 'go away'});
+    const result = await dbOperation.getTeams(req.body.name);
+    res.send(result.recordset);
 });
 
 app.post('/hello', function(req, res){
     console.log('called');
     res.send({result: 'OMG HI'});
 });
-
-//let Paprika = new Team('Paprika', 'ATEC 3451', '001', 'CB3', '1.223', '19:00');
-
-//console.log(Paprika);
-/*
-dbOperation.getTeams().then(res => {
-    console.log(res.recordset);
-})
-*/
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
 

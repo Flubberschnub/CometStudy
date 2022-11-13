@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 /*import background from "./CometStudy_map.png";*/
 import './App.css';
 import $ from 'jquery';
@@ -8,11 +9,33 @@ let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function App() {
 
+  const [returnedData, setReturnedData] = useState(['hello']);
   const [group, setGroup] = useState({groupName: '', class: '', section: '', building: '', classroom: '', endTime: ''})
 
   const setInput = (e) => {
     const{name, value} = e.target;
     console.log(value);
+    setGroup(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  }
+
+  const fetchData = async () => {
+    console.log(group);
+    const newData = await fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: group.groupName
+      })
+    })
+    .then(res => res.json())
+    console.log(newData);
+    setReturnedData(newData[0])
   }
 
 	return (
@@ -33,7 +56,7 @@ function App() {
     */
     
     <div>
-      
+  
     <div className="addGroup">
       <input 
        name = "groupName" 
@@ -70,8 +93,6 @@ function App() {
       <p>endTime: {returnedData.endTime}</p>
     </div>
 
-
-
       <section class = "group-list">
       <button onClick = {createCard}>Click</button>
       <button onClick = {initList}>Yay</button>
@@ -96,13 +117,15 @@ function App() {
 }
 
 function initList(){
-  var components = [];    // create empty array for component list
-  $.post("process.php"
-    ,{action: "getComponents"}
-    ,function(data){ components = JSON.parse(data);
-    $("#components_raw").html(data);
-    $("#components").html(components);
-  });
+  alert("before");
+
+  $.get("process.php",
+      function(data)
+      {
+          alert(data);
+      } );
+  
+      alert("after");
 }
 
 function on(count) {
