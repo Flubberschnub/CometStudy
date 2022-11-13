@@ -1,10 +1,15 @@
 import React from 'react';
+import $ from 'jquery';
 import './Sidebar.css';
 import App from './App';
 import {useFormik} from 'formik';
 import ReactDOM from 'react-dom/client';
 import {Helmet} from 'react-helmet';
 
+
+
+
+  
 
 
 function Sidebar() {
@@ -16,6 +21,10 @@ function Sidebar() {
 			// handle form submission
 			alert(values.search);
 			resetForm();
+			var filterArray = App.dataArr.filter(function (el){
+				return el.subject === "CS2337.003";
+			  });
+			App.createCardList();
 		},
 		handleChange: values => {
 			// display search input
@@ -50,7 +59,7 @@ function Sidebar() {
 
 			{/*Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page*/}
 			<div id="main">
-				<div>{App()}</div>
+				<App />
 			</div>
 
 			
