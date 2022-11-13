@@ -37,22 +37,76 @@
   }
 }
 
+/*
 img {
   width: 800px;
   height: 1000px;
   float: right;
 }
+*/
+
 
 .overlay {
+  /*
   position: absolute;
   display: none;
-  width: 20%;
-  height: 20%;
-  top: 200px;
-  left: 1000px;
+  width: 30%;
+  height: 100%;
+  top: 100px;
+  left: 400px;
   right: 0;
   bottom: 0;
-  background-color: rgba(233, 20, 20, 0.5);
-  z-index: 2;
+  */
+  display: inline-block;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0px 10px 5px #b2bec3;
+  text-align: center;
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 41%;
+  height: 700px;
+  background-color: rgba(217, 122, 45, 0.5);
+  
+  
+}
+
+
+.group-list {
+  background-color: #dfe6e9;
+  /*padding: 1em;*/
+}
+
+.group-list .card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0px 10px 5px #b2bec3;
+  text-align: center;
+  font-family: 'Poppins';
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 45%;
+  float: right;
+  text-align: left;
+}
+
+.group-list .card:hover {
+  background-color:rgb(217,122,45);
+  color: rgb(255, 255, 255);
   cursor: pointer;
+}
+
+.card .title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card .text {
+  text-align: left;
+  margin-left: 2em;
+  margin-bottom: 0.5em;
 }
