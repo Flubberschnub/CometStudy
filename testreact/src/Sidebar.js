@@ -24,7 +24,12 @@ function Sidebar() {
 	return (
 		<div>
 			<div id="mySidenav" class="sidenav">
+				<img src={require('./logoutd.png')} class="logo"></img>
 				<button class="closebtn" onClick={closeNav}>&times;</button>
+				<h1 class="pagetitle">eStudying</h1>
+				<br></br>
+				<br></br>
+				<br></br>
 				<form class="search-form" onSubmit={formik.handleSubmit}>
 					<input class="search-bar"
 						id="search"
