@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client';
 import Apptwo from './Sidebar';
 /*import background from "./CometStudy_map.png";*/
 import './App.css';
+import $ from 'jquery';
 
 let count = 0;
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
