@@ -6,7 +6,16 @@ let count = 0;
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function App() {
+
+  const [group, setGroup] = useState({groupName: '', class: '', section: '', building: '', classroom: '', endTime: ''})
+
+  const setInput = (e) => {
+    const{name, value} = e.target;
+    console.log(value);
+  }
+
 	return (
+    
     /*
     <div>
       <img src={require('./CometStudy_map.png')} alt="not available"></img>
@@ -22,8 +31,43 @@ function App() {
     </div>
     */
     
-
     <div>
+      
+    <div className="addGroup">
+      <input 
+       name = "groupName" 
+       placeHolder = "groupName" 
+       onChange = {setInput}></input>
+      <input 
+       name = "class" 
+       placeHolder = "class" 
+       onChange = {setInput}>
+      </input>
+      <input 
+       name = "section"
+       placeHolder = "section"
+       onChange = {setInput}></input>
+      <input
+       name = "building" 
+       placeHolder = "building" 
+       onChange = {setInput}></input>
+      <input
+       name = "classroom" 
+       placeHolder = "classroom" 
+       onChange = {setInput}></input>
+      <input
+       name = "endTime" 
+       placeHolder = "endTime" 
+       onChange = {setInput}>
+      </input>
+      <button onClick = {() => fetchData()}>Create Group</button>
+      <p>groupName: {returnedData.groupName}</p>
+      <p>class: {returnedData.class}</p>
+      <p>section: {returnedData.section}</p>
+      <p>building: {returnedData.building}</p>
+      <p>classroom: {returnedData.classroom}</p>
+      <p>endTime: {returnedData.endTime}</p>
+    </div>
 
       <section class = "group-list">
       <button onClick = {createCard}>Click</button>
