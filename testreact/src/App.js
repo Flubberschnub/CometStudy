@@ -1,6 +1,7 @@
 import React from 'react';
 /*import background from "./CometStudy_map.png";*/
 import './App.css';
+import $ from 'jquery';
 
 let count = 0;
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -25,8 +26,11 @@ function App() {
 
     <div>
 
+
+
       <section class = "group-list">
       <button onClick = {createCard}>Click</button>
+      <button onClick = {initList}>Yay</button>
       <div class = "card" id = "0" onClick = {on}>
         <div class = "title">Group 0</div>
         <div class = "text">Group Details</div>
@@ -41,10 +45,20 @@ function App() {
           <div id="text">Overlay Text</div>
         </div>
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     </div>
   
   )
+}
+
+function initList(){
+  var components = [];    // create empty array for component list
+  $.post("process.php"
+    ,{action: "getComponents"}
+    ,function(data){ components = JSON.parse(data);
+    $("#components_raw").html(data);
+    $("#components").html(components);
+  });
 }
 
 function on(count) {
